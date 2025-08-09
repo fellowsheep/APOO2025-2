@@ -8,6 +8,6 @@ struct Pessoa {
     int idade;
 };
 
-void mostrarPessoa(const Pessoa& p);
+void mostrarPessoa(Pessoa p);
 
 #endif
