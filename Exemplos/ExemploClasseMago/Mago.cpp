@@ -10,9 +10,36 @@ Mago::Mago()
     cout << "Mago criado com construtor padrão!" << endl;
 }
 
+Mago::Mago(string nome, int idade, string escolaDeMagia)
+{
+    this->nome = nome;
+    this->idade = idade;
+    this->escolaDeMagia = escolaDeMagia;
+}
+
 Mago::~Mago()
 {
     cout << "Deixou de existir!" << endl;
+}
+
+void Mago::alterarNome(string nome)
+{
+    this->nome = nome;
+}
+
+void Mago::alterarIdade(int idade)
+{
+    this->idade = idade;
+}
+
+int Mago::retornarIdade()
+{
+    return idade;
+}
+
+string Mago::retornarNome()
+{
+    return nome;
 }
 
 void Mago::andar()
