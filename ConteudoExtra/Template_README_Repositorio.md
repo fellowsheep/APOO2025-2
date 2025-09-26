@@ -1,6 +1,6 @@
-# Processamento Gráfico: Fundamentos 2025/2
+# Algoritmos e Programação: Orientação a Objetos 2025/2
 
-Repositório com os projetos desenvolvidos para a Atividade Acadêmica **Processamento Gráfico: Fundamentos**, parte do curso de graduação em **Ciência da Computação da Unisinos**.
+Repositório com os projetos desenvolvidos para a Atividade Acadêmica **Algoritmos e Programação: Orientação a Objetos**, parte do curso de graduação em **Ciência da Computação** e **Engenharia da Computação** da **Unisinos**.
 
 👤 **Nome Completo:** [Seu Nome Aqui]
 
@@ -10,9 +10,9 @@ Repositório com os projetos desenvolvidos para a Atividade Acadêmica **Process
 
 | Projeto                 | Engine / Linguagem | Descrição breve                             |
 | ----------------------- | ------------------ | ------------------------------------------- |
-| `Lista 1`       | C++/OpenGL         | Desenvolvimento dos exercícios da Lista 1    |
-| `Lista 2` | C++/OpenGL         | Desenvolvimento dos exercícios da Lista 2 |
-| `Trabalho Grau A`      | C++/OpenGL   | Desenvolvimento do Trabalho do Grau A |
+| `Lista 1`       | C++         | Desenvolvimento dos exercícios da Lista 1    |
+| `Lista 2` | C++         | Desenvolvimento dos exercícios da Lista 2 |
+| `Trabalho Grau A`      | C++   | Desenvolvimento do Trabalho do Grau A |
 | ...      | ...         | ...       |
 
 
