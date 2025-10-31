@@ -1,0 +1,51 @@
+@startuml
+' Configurações para um visual mais limpo
+skinparam linetype ortho
+hide empty members
+
+title Diagrama de Classes - Animais e Gerenciador de Som
+
+' --- Classe Concreta ---
+class GerenciadorSom {
+    +tocarSom(string) : void
+}
+
+' --- Classe Base Abstrata ---
+abstract class Animal {
+    #nome: string
+    #gerenciador: GerenciadorSom&
+    +Animal(string, GerenciadorSom&)
+    {abstract} +fazerSom() : void
+}
+
+' --- Classes Derivadas ---
+class Cachorro {
+    +Cachorro(string, GerenciadorSom&)
+    +fazerSom() : void
+}
+
+class Gato {
+    +Cachorro(string, GerenciadorSom&)
+    +fazerSom() : void
+}
+
+' --- Relacionamentos ---
+
+' Herança (Generalização)
+' "Animal é a classe base para Cachorro e Gato"
+Animal <|-- Cachorro
+Animal <|-- Gato
+
+' Associação (Agregação por Referência)
+' "Muitos Animais usam UM GerenciadorSom"
+Animal "1..*" o-- "1" GerenciadorSom
+
+note on link
+  <b>Associação (Agregação)</b>
+  A classe 'Animal' possui uma
+  <b>referência</b> para 'GerenciadorSom'.
+  Vários animais compartilham o
+  mesmo objeto gerenciador.
+end note
+
+@enduml

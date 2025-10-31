@@ -6,11 +6,9 @@
 class Cachorro : public Animal
 {
     public:
-    Cachorro(string nome,ma_engine *engine);
+    // Apenas passa o gerenciador para a classe base (Animal)
+    Cachorro(string nome, GerenciadorSom& gerenciador);
     virtual void fazerSom();
-    protected:
-    ma_engine *engine;
-
 };
 
 #endif
