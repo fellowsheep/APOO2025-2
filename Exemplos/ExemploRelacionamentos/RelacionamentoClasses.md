@@ -1,6 +1,12 @@
 # Além da Herança: Outros Relacionamentos Entre Classes
 
-A herança ("É um") é um dos pilares da Orientação a Objetos, mas não é a única forma pela qual as classes podem se relacionar. Na verdade, na maioria dos sistemas, os relacionamentos mais comuns são os de **Associação**, **Agregação** e **Composição**.
+A herança ("*é um*") é um dos pilares da Orientação a Objetos, mas não é a única forma pela qual as classes podem se relacionar. Na verdade, o relacionamento mais fundamental é o de **Associação** (um objeto "usa" ou "interage com" outro).
+
+A Associação, em seu sentido mais amplo, pode ser refinada. Como a imagem que você encontrou ilustra, existem formas mais específicas de associação que denotam posse: a **Agregação** (que representa um relacionamento "tem um") e a **Composição** (que representa um relacionamento de posse mais forte, "é parte de").
+
+Esses relacionamentos descrevem como os objetos *interagem*, *usam* ou *possuem* uns aos outros. Se um `Mago` lança uma `Magia`, temos uma associação geral. Se um `Mago` *obtém* um `Item`, temos uma associação mais específica de **Agregação**. Se um `Mago` *possui* algo que faz parte de sua definição, temos uma associação de **Composição**.
+
+Vamos explorar a **Associação** em seu sentido mais geral (o "uso") e, em seguida, suas duas formas especializadas de posse: a **Agregação** e a **Composição**.
 
 Esses relacionamentos descrevem como os objetos *interagem* ou *usam* uns aos outros. Se um `Mago` lança uma `Magia`, qual é o relacionamento entre eles? Se um `Mago` *tem* um `Item`, como representamos isso?
 
@@ -18,7 +24,7 @@ Um objeto é frequentemente passado como parâmetro para um método de outro, ou
 Um `Mago` pode lançar uma `Magia`. A classe `Mago` *usa* a classe `Magia`. O `Mago` não "possui" a `Magia` (a magia é um conceito), ele apenas a executa.
 
 **Diagrama UML:**
-Uma linha pontilhada com uma seta aberta indica a direção do "uso".
+Uma linha sólida com uma seta aberta indica a direção do "uso".
 
 ```plantuml
 @startuml
@@ -28,7 +34,7 @@ hide emptyMembers
 class Mago
 class Magia
 
-Mago ..> Magia : "usa"
+Mago --> Magia : "usa"
 @enduml
 ```
 
