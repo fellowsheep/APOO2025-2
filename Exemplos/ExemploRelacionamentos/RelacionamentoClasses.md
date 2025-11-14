@@ -34,8 +34,10 @@ Associação indica que um objeto **usa** outro, sem relação de propriedade. O
 
 ### Diagrama simples (A usa B)
 
+![UML Associação Simples](img/Associacao.svg)
+
 ```puml
-@startuml
+@startuml associacao
 class A
 class B
 A --> B : usa
@@ -47,8 +49,10 @@ A --> B : usa
 Um **Mago** pode **lançar** uma **Magia**, mas ele não “possui” essa magia.  
 A `Magia` pode existir independentemente do `Mago`.
 
+![AssociacaoSimplesMago](img/AssociacaoSimplesRPG.svg)
+
 ```puml
-@startuml
+@startuml associacaoRPG
 class Mago
 class Magia
 class BolaDeFogo
@@ -93,8 +97,10 @@ Na agregação, o **todo** mantém uma **referência** (geralmente ponteiro) par
 
 ### Diagrama simples (A o-- B)
 
+![UML Agregação](img/agregacao.svg)
+
 ```puml
-@startuml
+@startuml agregacao
 class A
 class B
 A o-- B : tem (referencia)
@@ -108,16 +114,14 @@ Um `Mago` "tem um" `Item` (como um cajado ou amuleto). O `Mago` usa o `Item` par
 **Diagrama UML:**
 Uma linha sólida com um **diamante vazio** do lado do "todo" (o dono).
 
-```plantuml
-@startuml
-skinparam classAttributeIconSize 0
-hide emptyMembers
+![UML Agregacao RPG](img/AgregacaoRPG.svg)
 
+```plantuml
+@startuml agregacaoRPG
 class Mago
 class Item
-
 ' O Mago "tem um" Item
-Mago o-- Item
+Mago o-- Item: tem um 
 @enduml
 ```
 
@@ -209,22 +213,31 @@ A **Composição** é a forma mais forte de posse. É um relacionamento "é part
 
 Ela também é um "tem um", mas com uma regra crucial: o ciclo de vida da "parte" é **totalmente controlado** pelo "todo". Se o "todo" é destruído, a "parte" é destruída junto. A "parte" não pode existir sem o "todo".
 
+![alt text](img/Composicao.svg)
+ 
+ ```puml
+@startuml composicao
+class A
+class B
+A *-- B : é composto por
+@enduml
+```
+
 **Exemplo de RPG:**
 Um `Mago` "é composto por" um `Inventario`. O `Inventario` de um Mago específico não faz sentido existir sem aquele `Mago`. Quando o `Mago` é criado, seu `Inventario` é criado junto. Quando o `Mago` morre (é destruído), seu `Inventario` deixa de existir.
 
 **Diagrama UML:**
 Uma linha sólida com um **diamante preenchido** do lado do "todo".
 
-```plantuml
-@startuml
-skinparam classAttributeIconSize 0
-hide emptyMembers
+![UML Composicao RPG](img/ComposicaoRPG.svg)
 
+```plantuml
+@startuml composicaoRPG
 class Mago
 class Inventario
 
 ' O Mago "é composto por" um Inventario
-Mago *-- Inventario
+Mago *-- Inventario: é composto por
 @enduml
 ```
 
@@ -314,17 +327,19 @@ O relacionamento entre **Druida** e **Familiar** pode ser modelado de formas dif
 * **Associação:** o Druida **invoca** um Familiar já existente (ciclos de vida independentes).
 * **Composição:** o Druida **possui** um FamiliarVinculado que é criado e destruído junto com ele (ciclo de vida compartilhado).
 
-### 4.1 Diagrama simples (Associação)
+### 4.1 Associação Simples
+
+![alt text](img/AssociacaoDruida.svg)
 
 ```puml
-@startuml
+@startuml associacaoDruida
 class Druida
 class Familiar
 Druida --> Familiar : invoca
 @enduml
 ```
 
-### Código C++ (Associação)
+### Código C++ (Associação Simples)
 
 ```cpp
 #include <iostream>
@@ -349,16 +364,18 @@ public:
 };
 
 int main() {
-    Familiar lobo("Lobo das Brumas");
+    Familiar familiar("Lobo das Brumas");
     Druida druida;
-    druida.invocar(&lobo);
+    druida.invocar(&familiar);
 }
 ```
 
-### 4.2 Diagrama simples (Composição)
+### 4.2 Composição
+
+![alt text](img/ComposicaoDruida.svg)
 
 ```puml
-@startuml
+@startuml composicaoDruida
 class Druida
 class FamiliarVinculado
 Druida *-- FamiliarVinculado : vinculo magico
@@ -418,8 +435,10 @@ pode afetar a classe cliente, mas **sem vínculo de ciclo de vida**.
 
 ### Diagrama simples (A ..> B)
 
+![alt text](img/Dependencia.svg)
+
 ```puml
-@startuml
+@startuml dependencia
 class A
 class B
 A ..> B : usa temporariamente
@@ -435,11 +454,13 @@ O Mago **não possui** um Feiticeiro como atributo; apenas **depende temporariam
 
 ### Diagrama UML (Dependência)
 
+![alt text](img/DependenciaMago.svg)
+
 ```puml
-@startuml
+@startuml dependenciaMago
 class Mago
 class Feiticeiro
-Mago ..> Feiticeiro : consulta()
+Mago ..> Feiticeiro : consulta
 @enduml
 ```
 
@@ -484,11 +505,13 @@ Após o método terminar, o ingrediente **não é armazenado** — o vínculo é
 
 ### Diagrama UML (Dependência)
 
+![alt text](img/DependenciaAlquimista.svg)
+
 ```puml
-@startuml
+@startuml dependenciaAlquimista
 class Alquimista
 class Ingrediente
-Alquimista ..> Ingrediente : prepararPocao()
+Alquimista ..> Ingrediente : prepararPocao
 @enduml
 ```
 

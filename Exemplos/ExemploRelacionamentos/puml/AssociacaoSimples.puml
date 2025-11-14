@@ -1,0 +1,5 @@
+@startuml associacao
+class A
+class B
+A --> B : usa
+@enduml

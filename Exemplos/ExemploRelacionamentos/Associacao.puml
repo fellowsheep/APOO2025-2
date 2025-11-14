@@ -1,8 +1,0 @@
-@startuml
-hide emptyMembers
-
-class Mago
-class Magia
-
-Mago --> Magia : "usa"
-@enduml
