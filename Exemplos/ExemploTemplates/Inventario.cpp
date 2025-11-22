@@ -91,6 +91,8 @@ int main() {
     // 3. Mostrando que funciona com primitivos (conexão com int, float)
     Inventario<int> pontuacoes(10);
     pontuacoes.guardar(1500);
+    pontuacoes.guardar(500);
+    pontuacoes.guardar(5000);
     pontuacoes.listarConteudo();
 
     return 0;
